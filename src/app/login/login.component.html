@@ -1,0 +1,12 @@
+<form class="my-form">
+    <h3>Login Form</h3>
+    <mat-form-field class="my-fields">
+        <mat-label>User Name</mat-label>
+        <input matInput [(ngModel)]="loginForm.username" name="username">
+    </mat-form-field>
+    <mat-form-field class="my-fields">
+        <mat-label>Password</mat-label>
+        <input matInput type="password"  [(ngModel)]="loginForm.password" name="password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="userLogin()">Login</button>
+</form>
