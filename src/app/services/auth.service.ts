@@ -31,12 +31,18 @@ export class AuthService {
             return false;
           }
           localStorage.setItem('access_token', data.access_token);
+          localStorage.setItem('refresh_token', data.refresh_token);
           const decodedUser = this.jwtHelper.decodeToken(data.access_token);
+          localStorage.setItem('expiration', decodedUser.exp);
           this.userInfo.next(decodedUser);
           return true;
         })
       );
     }
     return of(false);
+  }
+
+  callRefershToken(payload){
+    return this.http.post("http://localhost:3000/auth/refreshtoken",payload);
   }
 }

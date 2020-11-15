@@ -1,1 +1,7 @@
 <h3>Welcome {{userName}} !</h3>
+<div *ngIf="todos">
+    <h5>My Todos</h5>
+    <ul >
+        <li *ngFor="let todo of todos">{{todo}}</li>
+    </ul>
+</div>
